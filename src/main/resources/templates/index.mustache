@@ -1,0 +1,85 @@
+{{>layout/header}}
+    <h1>스프링 부트로 시작하는 웹 서비스!!!!!</h1>
+
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+                <!-- 로그인 영역 -->
+                {{#userName}}
+                    Logged in as: <span id="user">{{userName}}</span>
+                    <a href="/logout" class="btn btn-info active" role="button">LogOut</a>
+                {{/userName}}
+                {{^userName}}
+                    <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
+                {{/userName}}
+            </div>
+        </div>
+        <br/>
+        <!-- 목록 출력 영역 -->
+        <table class="table table-horizontal table-bordered">
+            <thead class="thead-strong">
+            <tr>
+                <th>게시글번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>최종수정일</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+            {{#posts}} <!-- posts라는 list 순환, java-for -->
+                <tr>
+                    <td>{{id}}</td> <!-- \{\{변수명}} -->
+                    <td><a href="/posts/update/{{id}}">{{title}}</a></td>
+                    <td>{{author}}</td>
+                    <td>{{modifiedDate}}</td>
+                </tr>
+            {{/posts}}
+            </tbody>
+        </table>
+    </div> <!-- book source ends -->
+
+<pre></pre>
+<h1>- - - - - - - - from here, phoca template start</h1>
+<div class="background">
+    <div class="ad_slice"> ◀️ ad slide place ▶️ </div>
+    <div class="list_container">
+        <h2><a href="/market/market_list">PHOTO CARD</a></h2>
+        <ul class="clearfix board_list navi_style">
+            <li>
+                <div class="product_imgbox">
+                    <img class="product_img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD-y_Dw-2YKzMZXGQLyBtnE5B_UFDo7Dbgyw&usqp=CAU" alt="test" />
+                </div>
+                <ul class="product_title">
+                    <li><span class="cate_fnt">[판매]</span> ￦ 5000</li>
+                    <li class="cate_fnt">몬스타엑스, 셔누</li>
+
+                    <li>
+                        <span class="title_fnt">THE CONNECT in SEOUL</span></li>
+
+                </ul>
+            </li>
+            <li>상품 2</li>
+            <li>상품 3</li>
+            <li>상품 4</li>
+            <li>상품 5</li>
+            <li>상품 6</li>
+            <li>상품 7</li>
+            <li>상품 8</li>
+        </ul>
+    </div>
+    <div class="list_container">
+        <h2>GOODS</h2>
+        <ul class="clearfix board_list navi_style">
+            <li>굿즈 1</li>
+            <li>굿즈 2</li>
+            <li>굿즈 3</li>
+            <li>굿즈 4</li>
+            <li>굿즈 5</li>
+            <li>굿즈 6</li>
+            <li>굿즈 7</li>
+            <li>굿즈 8</li>
+        </ul>
+    </div>
+</div>
+{{>layout/footer}}
